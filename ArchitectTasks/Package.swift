@@ -25,6 +25,9 @@ let package = Package(
         // CLI executable
         .executable(name: "architect-cli", targets: ["architect-cli"]),
         
+        // Setup wizard
+        .executable(name: "architect-setup", targets: ["ArchitectSetup"]),
+        
         // Language Server
         .executable(name: "architect-lsp", targets: ["ArchitectLSP"]),
     ],
@@ -77,6 +80,13 @@ let package = Package(
             name: "architect-cli",
             dependencies: ["ArchitectHost"],
             swiftSettings: [.unsafeFlags(["-parse-as-library"])]
+        ),
+        
+        // Setup wizard
+        .executableTarget(
+            name: "ArchitectSetup",
+            dependencies: [],
+            path: "Sources/ArchitectSetup"
         ),
         
         // Language Server Protocol

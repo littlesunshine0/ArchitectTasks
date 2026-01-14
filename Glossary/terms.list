@@ -13,6 +13,7 @@ agent
 loop
 autolaunchsetup
 welcomeview
+setupwizardview
 xcodeextension
 xcodecommandprovider
 menubarview

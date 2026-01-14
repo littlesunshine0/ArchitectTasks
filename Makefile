@@ -1,4 +1,8 @@
-.PHONY: install uninstall clean
+.PHONY: install uninstall clean setup
+
+setup:
+	@echo "🚀 Starting ArchitectTasks Setup..."
+	@swift run architect-setup
 
 install:
 	@echo "🔨 Installing ArchitectTasks Xcode Extension..."

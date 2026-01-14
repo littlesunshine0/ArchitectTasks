@@ -1,0 +1,9 @@
+# setupwizardview
+
+**Type:** View Component
+
+**Definition:**
+Three-step guided installation wizard that welcomes users, requests permissions, builds/installs Xcode extension, and opens System Settings for activation.
+
+**Usage:**
+First-run experience launched via `make setup` that automates entire installation workflow with visual progress tracking and error handling.
