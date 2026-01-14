@@ -8,9 +8,16 @@ let package = Package(
     products: [
         .executable(name: "SpringClean", targets: ["SpringClean"])
     ],
+    dependencies: [
+        .package(url: "https://github.com/apple/swift-syntax.git", exact: "509.0.0"),
+    ],
     targets: [
         .executableTarget(
             name: "SpringClean",
+            dependencies: [
+                .product(name: "SwiftSyntax", package: "swift-syntax"),
+                .product(name: "SwiftParser", package: "swift-syntax"),
+            ],
             path: "Sources"
         )
     ]
