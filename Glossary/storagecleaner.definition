@@ -1,0 +1,9 @@
+# storagecleaner
+
+**Type:** Utility Component
+
+**Definition:**
+Automated storage optimization utility that removes build artifacts (.build, DerivedData), eliminates duplicate files, and merges multiple Xcode projects.
+
+**Usage:**
+Reduces project storage footprint by cleaning temporary files and consolidating redundant resources via `make optimize` or `architect-clean` command.

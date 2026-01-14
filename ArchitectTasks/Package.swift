@@ -25,6 +25,9 @@ let package = Package(
         // CLI executable
         .executable(name: "architect-cli", targets: ["architect-cli"]),
         
+        // Storage cleaner
+        .executable(name: "architect-clean", targets: ["architect-clean"]),
+        
         // Setup wizard
         .executable(name: "architect-setup", targets: ["ArchitectSetup"]),
         
@@ -80,6 +83,12 @@ let package = Package(
             name: "architect-cli",
             dependencies: ["ArchitectHost"],
             swiftSettings: [.unsafeFlags(["-parse-as-library"])]
+        ),
+        
+        // Storage cleaner
+        .executableTarget(
+            name: "architect-clean",
+            dependencies: ["ArchitectCore"]
         ),
         
         // Setup wizard

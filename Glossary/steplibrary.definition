@@ -1,0 +1,9 @@
+# steplibrary
+
+**Type:** Utility Component
+
+**Definition:**
+Predefined collection of common wizard steps including welcome, permissions, installation, optimization, configuration, and completion screens.
+
+**Usage:**
+Provides reusable step templates for rapid wizard construction via StepLibrary.welcome(), .permissions(), .installation(), etc.

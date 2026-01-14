@@ -1,0 +1,9 @@
+# wizardstep
+
+**Type:** Protocol
+
+**Definition:**
+Protocol defining wizard step interface with id, title, icon, view, skip capability, and optional async action execution.
+
+**Usage:**
+Base protocol for all wizard steps (InfoStep, ActionStep, ProgressStep) enabling composable multi-step flows.

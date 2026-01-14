@@ -1,0 +1,9 @@
+# optimizationstepview
+
+**Type:** View Component
+
+**Definition:**
+Setup wizard step explaining storage optimization features including build artifact cleanup, file deduplication, and project merging before execution.
+
+**Usage:**
+Third step in setup wizard that introduces optimization capabilities and prompts user to begin storage cleanup process.

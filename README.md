@@ -14,6 +14,18 @@ This launches a guided setup wizard that will:
 3. 🔨 Build and install the Xcode extension
 4. ⚙️ Open System Settings for final activation
 
+## Storage Optimization
+
+```bash
+make optimize
+```
+
+Cleans and optimizes your project:
+- 🗑️ Removes build artifacts (.build, DerivedData)
+- 🔍 Deduplicates identical files
+- 🔗 Merges multiple Xcode projects
+- 💾 Reports space saved
+
 ## What It Does
 
 - **Analyzes** your Swift code for issues

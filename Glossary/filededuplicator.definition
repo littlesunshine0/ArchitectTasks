@@ -1,0 +1,9 @@
+# filededuplicator
+
+**Type:** Utility Component
+
+**Definition:**
+SHA256-based file deduplication system that identifies identical Swift files, removes duplicates, and creates symbolic links to canonical versions.
+
+**Usage:**
+Scans project for duplicate files, replaces copies with symlinks, and reports space savings in MB.

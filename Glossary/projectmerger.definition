@@ -1,0 +1,9 @@
+# projectmerger
+
+**Type:** Utility Component
+
+**Definition:**
+Consolidates multiple Xcode projects into a single unified project by copying unique files, merging conflicting files with markers, and skipping identical files.
+
+**Usage:**
+Unifies fragmented project structures, reducing maintenance overhead and storage duplication across multiple .xcodeproj directories.

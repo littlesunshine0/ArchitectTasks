@@ -1,0 +1,9 @@
+# wizardbuilder
+
+**Type:** Builder Component
+
+**Definition:**
+Result builder system for composing multi-step wizard flows using protocol-based steps with declarative syntax and automatic progress tracking.
+
+**Usage:**
+Enables creation of custom wizards using @WizardBuilder syntax with InfoStep, ActionStep, and ProgressStep components.

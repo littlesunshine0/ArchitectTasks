@@ -18,8 +18,17 @@ struct SetupWizardView: View {
     @State private var currentStep = 0
     @State private var isInstalling = false
     @State private var installError: String?
+    @State private var showOptimization = false
     
     var body: some View {
+        if showOptimization {
+            OptimizationProgressView(isPresented: $showOptimization)
+        } else {
+            mainWizard
+        }
+    }
+    
+    private var mainWizard: some View {
         VStack(spacing: 0) {
             VStack(spacing: 12) {
                 Image(systemName: "hammer.fill")
@@ -30,14 +39,14 @@ struct SetupWizardView: View {
                     .font(.title)
                     .fontWeight(.bold)
                 
-                Text("Let's get you set up in 3 easy steps")
+                Text("Let's get you set up in 4 easy steps")
                     .foregroundColor(.secondary)
             }
             .padding(.top, 40)
             .padding(.bottom, 30)
             
             HStack(spacing: 8) {
-                ForEach(0..<3) { step in
+                ForEach(0..<4) { step in
                     Circle()
                         .fill(step <= currentStep ? Color.accentColor : Color.gray.opacity(0.3))
                         .frame(width: 10, height: 10)
@@ -48,13 +57,14 @@ struct SetupWizardView: View {
             TabView(selection: $currentStep) {
                 WelcomeStepView().tag(0)
                 PermissionsStepView(isInstalling: $isInstalling, error: $installError).tag(1)
-                CompleteStepView().tag(2)
+                OptimizationStepView(showOptimization: $showOptimization).tag(2)
+                CompleteStepView().tag(3)
             }
             .tabViewStyle(.automatic)
             .frame(height: 300)
             
             HStack {
-                if currentStep > 0 && currentStep < 2 {
+                if currentStep > 0 && currentStep < 3 {
                     Button("Back") {
                         withAnimation { currentStep -= 1 }
                     }
@@ -63,13 +73,9 @@ struct SetupWizardView: View {
                 
                 Spacer()
                 
-                if currentStep < 2 {
-                    Button(currentStep == 1 ? "Install Extension" : "Next") {
-                        if currentStep == 1 {
-                            installExtension()
-                        } else {
-                            withAnimation { currentStep += 1 }
-                        }
+                if currentStep < 3 {
+                    Button(buttonTitle) {
+                        handleNext()
                     }
                     .buttonStyle(.borderedProminent)
                     .disabled(isInstalling)
@@ -83,6 +89,25 @@ struct SetupWizardView: View {
             .padding()
         }
         .frame(width: 600, height: 500)
+    }
+    
+    private var buttonTitle: String {
+        switch currentStep {
+        case 1: return "Install Extension"
+        case 2: return "Optimize Storage"
+        default: return "Next"
+        }
+    }
+    
+    private func handleNext() {
+        switch currentStep {
+        case 1:
+            installExtension()
+        case 2:
+            showOptimization = true
+        default:
+            withAnimation { currentStep += 1 }
+        }
     }
     
     private func installExtension() {

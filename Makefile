@@ -1,4 +1,4 @@
-.PHONY: install uninstall clean setup
+.PHONY: install uninstall clean setup optimize
 
 setup:
 	@echo "🚀 Starting ArchitectTasks Setup..."
@@ -7,6 +7,10 @@ setup:
 install:
 	@echo "🔨 Installing ArchitectTasks Xcode Extension..."
 	@./install-extension.swift
+
+optimize:
+	@echo "🧹 Optimizing project storage..."
+	@swift run architect-clean .
 
 uninstall:
 	@echo "🗑️  Uninstalling ArchitectTasks..."

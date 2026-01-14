@@ -14,6 +14,9 @@ loop
 autolaunchsetup
 welcomeview
 setupwizardview
+storagecleaner
+filededuplicator
+projectmerger
 xcodeextension
 xcodecommandprovider
 menubarview
@@ -74,3 +77,9 @@ if
 else
 conditional
 statements
+optimizationprogressview
+optimizationstepview
+wizardbuilder
+wizardbuilderview
+wizardstep
+steplibrary

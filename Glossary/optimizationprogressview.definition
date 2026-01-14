@@ -1,0 +1,9 @@
+# optimizationprogressview
+
+**Type:** View Component
+
+**Definition:**
+Real-time progress visualization showing three optimization phases (cleaning, deduplicating, merging) with animated indicators, item counts, and space savings report.
+
+**Usage:**
+Displays during setup wizard optimization step, providing visual feedback as storage cleanup operations execute sequentially.

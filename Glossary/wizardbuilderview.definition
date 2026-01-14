@@ -1,0 +1,9 @@
+# wizardbuilderview
+
+**Type:** View Component
+
+**Definition:**
+Visual GUI for composing wizard flows through drag-and-drop interface with live preview and Swift code generation export.
+
+**Usage:**
+Interactive editor for creating custom setup wizards without writing code, generates production-ready Swift files.
