@@ -35,17 +35,17 @@ make spring-clean
 
 ### GUI App:
 ```bash
-./build-spring-clean.sh
+make spring-clean-gui
 ```
 
 Then launch from `/Applications/Spring Clean.app`
 
 Safely cleans your entire system:
-- 📦 Xcode DerivedData and caches
+- 📦 Xcode DerivedData and caches (all users)
 - 📚 Xcode Archives
 - 🍺 Homebrew caches
 - 📁 System caches
-- 🗑️ Trash
+- 🗑️ Trash (all users)
 - 📥 Old downloads (30+ days)
 - ⚠️ Interactive prompts before deletion
 - 🔒 Automatic app closing (Xcode, Terminal)
@@ -86,6 +86,7 @@ make uninstall
 - **ArchitectExecutor** - Code transforms
 - **ArchitectHost** - Orchestration layer
 - **ArchitectXcodeExtension** - Xcode integration
+- **SpringClean** - System storage cleaner
 
 ## Requirements
 

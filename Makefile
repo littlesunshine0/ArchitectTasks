@@ -1,4 +1,4 @@
-.PHONY: install uninstall clean setup optimize spring-clean
+.PHONY: install uninstall clean setup optimize spring-clean spring-clean-gui
 
 setup:
 	@echo "🚀 Starting ArchitectTasks Setup..."
@@ -14,13 +14,17 @@ optimize:
 
 spring-clean:
 	@echo "🌸 Running system spring cleaning..."
-	@./spring-clean.swift
+	@cd SpringClean && sudo ./spring-clean.swift
+
+spring-clean-gui:
+	@echo "🌸 Building Spring Clean GUI..."
+	@cd SpringClean && ./build.sh
 
 uninstall:
 	@echo "🗑️  Uninstalling ArchitectTasks..."
 	@sudo rm -rf /Applications/ArchitectTasks.app
+	@sudo rm -rf "/Applications/Spring Clean.app"
 	@echo "✅ Uninstalled"
-	@echo "⚠️  Restart Xcode to complete removal"
 
 clean:
 	@rm -rf .build

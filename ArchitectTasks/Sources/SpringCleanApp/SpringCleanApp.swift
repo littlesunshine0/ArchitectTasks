@@ -1,7 +1,5 @@
 import SwiftUI
 
-// MARK: - Spring Clean App
-
 @main
 struct SpringCleanApp: App {
     var body: some Scene {
@@ -12,15 +10,12 @@ struct SpringCleanApp: App {
     }
 }
 
-// MARK: - Main View
-
 struct SpringCleanView: View {
     @StateObject private var cleaner = SystemCleaner()
     @State private var showConfirmation = false
     
     var body: some View {
         VStack(spacing: 0) {
-            // Header
             VStack(spacing: 12) {
                 Image(systemName: "sparkles")
                     .font(.system(size: 60))
@@ -36,7 +31,6 @@ struct SpringCleanView: View {
             .padding(.top, 40)
             .padding(.bottom, 30)
             
-            // Content
             if cleaner.isScanning {
                 ProgressView("Scanning system...")
                     .padding()
@@ -81,7 +75,6 @@ struct SpringCleanView: View {
                 CleanableItemsList(items: cleaner.groupedItems, totalSize: cleaner.totalSize)
             }
             
-            // Actions
             HStack(spacing: 12) {
                 if !cleaner.items.isEmpty {
                     Button("Scan Again") {
@@ -118,12 +111,10 @@ struct SpringCleanView: View {
                 Task { await cleaner.clean() }
             }
         } message: {
-            Text("This will delete \(cleaner.items.count) items and free up approximately \(cleaner.formattedTotalSize). Actual savings may vary due to file system overhead. This action cannot be undone.")
+            Text("This will delete \(cleaner.items.count) items and free up approximately \(cleaner.formattedTotalSize). Actual savings may vary. This action cannot be undone.")
         }
     }
 }
-
-// MARK: - Items List
 
 struct CleanableItemsList: View {
     let items: [String: [CleanableItem]]
@@ -140,8 +131,6 @@ struct CleanableItemsList: View {
         }
     }
 }
-
-// MARK: - Category Section
 
 struct CategorySection: View {
     let category: String
@@ -214,13 +203,10 @@ struct CategorySection: View {
     }
 }
 
-// MARK: - System Cleaner
-
 @MainActor
 class SystemCleaner: ObservableObject {
     @Published var items: [CleanableItem] = []
     @Published var isScanning = false
-    @Published var isUpdateRunning = false
     @Published var errors: [CleaningError] = []
     @Published var actualSaved = 0
     
@@ -243,20 +229,18 @@ class SystemCleaner: ObservableObject {
     func scan() async {
         isScanning = true
         items = []
+        errors = []
         
-        // Check for system updates
         if await checkForUpdates() {
-            isUpdateRunning = true
+            errors.append(CleaningError(message: "System update in progress - cleaning blocked"))
             isScanning = false
             return
         }
         
-        // Close affected apps
         await closeAffectedApps()
         
         var scannedItems: [CleanableItem] = []
         
-        // Scan all user directories
         let usersDir = URL(fileURLWithPath: "/Users")
         if let users = try? FileManager.default.contentsOfDirectory(at: usersDir, includingPropertiesForKeys: nil) {
             for userDir in users {
@@ -271,7 +255,6 @@ class SystemCleaner: ObservableObject {
             }
         }
         
-        // System-wide locations
         scannedItems.append(contentsOf: await scanDirectory(URL(fileURLWithPath: "/usr/local/Homebrew/Library/Homebrew/cache"), category: "Homebrew Cache"))
         scannedItems.append(contentsOf: await scanDirectory(URL(fileURLWithPath: "/Library/Caches"), category: "System Caches", maxDepth: 1))
         scannedItems.append(contentsOf: await scanDirectory(URL(fileURLWithPath: "/tmp"), category: "System Temp", maxDepth: 1))
@@ -286,16 +269,13 @@ class SystemCleaner: ObservableObject {
         actualSaved = 0
         var itemsToDelete: [(URL, Int)] = []
         
-        // Measure actual sizes before deletion
         for item in items {
             let actualSize = directorySize(at: item.path)
             itemsToDelete.append((item.path, actualSize))
         }
         
-        let paths = itemsToDelete.map { $0.0.path }.joined(separator: " ")
-        let script = """
-        do shell script "rm -rf \(paths)" with administrator privileges
-        """
+        let paths = itemsToDelete.map { "'\($0.0.path)'" }.joined(separator: " ")
+        let script = "do shell script \"rm -rf \(paths)\" with administrator privileges"
         
         var error: NSDictionary?
         if let appleScript = NSAppleScript(source: script) {
@@ -305,7 +285,6 @@ class SystemCleaner: ObservableObject {
         if let error = error {
             errors.append(CleaningError(message: "Failed to delete items: \(error.description)"))
         } else {
-            // Calculate actual savings
             for (path, size) in itemsToDelete {
                 if !FileManager.default.fileExists(atPath: path.path) {
                     actualSaved += size
@@ -315,7 +294,6 @@ class SystemCleaner: ObservableObject {
         
         await scan()
         
-        // Show results before quitting
         DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
             NSApplication.shared.terminate(nil)
         }
@@ -419,8 +397,6 @@ class SystemCleaner: ObservableObject {
         return size
     }
 }
-
-// MARK: - Models
 
 struct CleanableItem: Identifiable {
     let id = UUID()
