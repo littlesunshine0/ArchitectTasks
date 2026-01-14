@@ -2,6 +2,14 @@
 
 import Foundation
 
+// MARK: - Models
+
+struct CleanableItem {
+    let path: URL
+    let category: String
+    let size: Int
+}
+
 // MARK: - Spring Cleaner
 
 struct SpringCleaner {
@@ -231,19 +239,11 @@ struct SpringCleaner {
     }
 }
 
-// MARK: - Models
+// MARK: - Run
 
-struct CleanableItem {
-    let path: URL
-    let category: String
-    let size: Int
+Task {
+    await SpringCleaner().run()
+    exit(0)
 }
 
-// MARK: - Main
-
-@main
-struct SpringCleanCommand {
-    static func main() async {
-        await SpringCleaner().run()
-    }
-}
+RunLoop.main.run()
