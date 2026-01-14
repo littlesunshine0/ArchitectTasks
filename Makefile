@@ -1,4 +1,4 @@
-.PHONY: install uninstall clean setup optimize
+.PHONY: install uninstall clean setup optimize spring-clean
 
 setup:
 	@echo "🚀 Starting ArchitectTasks Setup..."
@@ -11,6 +11,10 @@ install:
 optimize:
 	@echo "🧹 Optimizing project storage..."
 	@swift run architect-clean .
+
+spring-clean:
+	@echo "🌸 Running system spring cleaning..."
+	@./spring-clean.swift
 
 uninstall:
 	@echo "🗑️  Uninstalling ArchitectTasks..."

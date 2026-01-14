@@ -26,6 +26,32 @@ Cleans and optimizes your project:
 - 🔗 Merges multiple Xcode projects
 - 💾 Reports space saved
 
+## System Spring Cleaning
+
+### Terminal:
+```bash
+make spring-clean
+```
+
+### GUI App:
+```bash
+./build-spring-clean.sh
+```
+
+Then launch from `/Applications/Spring Clean.app`
+
+Safely cleans your entire system:
+- 📦 Xcode DerivedData and caches
+- 📚 Xcode Archives
+- 🍺 Homebrew caches
+- 📁 System caches
+- 🗑️ Trash
+- 📥 Old downloads (30+ days)
+- ⚠️ Interactive prompts before deletion
+- 🔒 Automatic app closing (Xcode, Terminal)
+- 🛡️ System update detection
+- 🔐 Privileged deletion with admin password
+
 ## What It Does
 
 - **Analyzes** your Swift code for issues

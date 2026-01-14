@@ -1,0 +1,9 @@
+# springcleanapp
+
+**Type:** macOS Application
+
+**Definition:**
+SwiftUI-based macOS app providing GUI for system-wide storage cleaning with categorized item review, update detection, automatic app closing, privileged deletion via AppleScript, and auto-quit after completion.
+
+**Usage:**
+Standalone clickable app that scans system, displays cleanable items by category with sizes, requires user confirmation, closes affected apps (Xcode, Terminal), and safely deletes with admin privileges.

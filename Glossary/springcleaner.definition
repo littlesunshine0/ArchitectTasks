@@ -1,0 +1,9 @@
+# springcleaner
+
+**Type:** Utility Component
+
+**Definition:**
+Interactive terminal-based system cleaner that scans for Xcode caches, build artifacts, Homebrew caches, old downloads, and trash with safe deletion prompts and space savings reporting.
+
+**Usage:**
+Run via `make spring-clean` to perform system-wide cleanup with category grouping, size calculations, and user confirmation before deletion.

@@ -28,6 +28,9 @@ let package = Package(
         // Storage cleaner
         .executable(name: "architect-clean", targets: ["architect-clean"]),
         
+        // Spring Clean App
+        .executable(name: "SpringClean", targets: ["SpringCleanApp"]),
+        
         // Setup wizard
         .executable(name: "architect-setup", targets: ["ArchitectSetup"]),
         
@@ -89,6 +92,13 @@ let package = Package(
         .executableTarget(
             name: "architect-clean",
             dependencies: ["ArchitectCore"]
+        ),
+        
+        // Spring Clean App
+        .executableTarget(
+            name: "SpringCleanApp",
+            dependencies: [],
+            path: "Sources/SpringCleanApp"
         ),
         
         // Setup wizard
