@@ -1,0 +1,9 @@
+# analysissettingsview
+
+**Type:** View Component
+
+**Definition:**
+Complexity threshold configuration for function lines, parameters, nesting depth, and file lines.
+
+**Usage:**
+Fine-tune analysis sensitivity and code quality standards.

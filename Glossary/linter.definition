@@ -1,0 +1,4 @@
+Term: Linter
+Classes: Tool
+Differentiating Characteristics: Analyzes code for style and quality violations; enforces coding standards and best practices.
+Explanation: A Linter is a tool that checks source code for stylistic or programming errors, helping maintain code quality and consistency.

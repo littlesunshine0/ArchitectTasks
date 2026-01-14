@@ -1,0 +1,9 @@
+# statview
+
+**Type:** View Component
+
+**Definition:**
+Displays a single numeric statistic with label in a compact vertical layout.
+
+**Usage:**
+Reusable component for showing metrics like findings count, tasks proposed, and tasks succeeded.

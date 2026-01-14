@@ -1,0 +1,4 @@
+Term: Action
+Classes: Operation
+Differentiating Characteristics: Represents a discrete operation or step within a workflow; can be atomic or composed of sub-actions.
+Explanation: An Action is a fundamental unit of work that can be executed by a tool, agent, or workflow engine.

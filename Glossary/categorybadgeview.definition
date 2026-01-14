@@ -1,0 +1,9 @@
+# categorybadgeview
+
+**Type:** View Component
+
+**Definition:**
+Color-coded badge displaying task intent category (documentation, quality, dataFlow, structural, architecture).
+
+**Usage:**
+Visual categorization of tasks with semantic color mapping.

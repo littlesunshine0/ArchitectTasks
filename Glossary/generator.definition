@@ -1,0 +1,6 @@
+Term: Generator
+Classes: Tool, Artifact
+Differentiating Characteristics:
+  - As a Tool: Automates the creation of code, files, or other artifacts using templates or logic.
+  - As an Artifact: Represents the output produced by a generator tool, such as source files or configuration files.
+Explanation: A Generator can refer to both the tool that produces artifacts and the artifacts themselves, depending on context. The tool automates repetitive tasks, while the artifact is the result of that automation.

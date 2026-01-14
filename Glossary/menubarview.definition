@@ -1,0 +1,9 @@
+# menubarview
+
+**Type:** View Component
+
+**Definition:**
+Main container view for the menu bar application interface, orchestrating header, project selection, status, tasks, and footer sections.
+
+**Usage:**
+Primary entry point for the menu bar UI, displaying application state and user interactions.

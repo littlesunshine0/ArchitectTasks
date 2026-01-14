@@ -1,0 +1,4 @@
+Term: Agent
+Classes: System Component, Role
+Differentiating Characteristics: Autonomous entity responsible for performing tasks, managing state, or interacting with other components.
+Explanation: An Agent is a software entity that acts on behalf of users or systems to accomplish specific goals, often with some degree of autonomy.

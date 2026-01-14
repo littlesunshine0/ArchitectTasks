@@ -1,0 +1,9 @@
+# taskssectionview
+
+**Type:** View Component
+
+**Definition:**
+Lists pending tasks with bulk approval/rejection controls in a scrollable container.
+
+**Usage:**
+Manages display and batch operations for tasks awaiting user review.

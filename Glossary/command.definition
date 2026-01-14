@@ -1,0 +1,4 @@
+Term: Command
+Classes: Action, Interface
+Differentiating Characteristics: Represents an instruction or request to perform a specific operation; can be invoked via CLI, API, or UI.
+Explanation: A Command is an explicit instruction that triggers an action or sequence of actions within a system.

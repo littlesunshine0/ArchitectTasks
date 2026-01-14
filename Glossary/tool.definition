@@ -1,0 +1,4 @@
+Term: Tool
+Classes: System Component
+Differentiating Characteristics: Provides a specific function or service within a software system; can be executed independently or as part of a workflow.
+Explanation: A Tool is a software component designed to perform a particular task, such as analysis, formatting, or code generation.

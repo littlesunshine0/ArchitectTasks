@@ -1,0 +1,4 @@
+Term: Analyzer
+Classes: Tool
+Differentiating Characteristics: Performs static or dynamic analysis to find issues or gather metrics in code; supports custom rules, integration with CI, and multi-language support.
+Explanation: An Analyzer is a tool that examines code or runtime behavior to identify bugs, performance issues, or code quality problems, providing actionable feedback to developers.

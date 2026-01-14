@@ -1,0 +1,9 @@
+# footerview
+
+**Type:** View Component
+
+**Definition:**
+Bottom section providing quit and settings navigation controls.
+
+**Usage:**
+Application-level actions and configuration access point.

@@ -1,0 +1,9 @@
+# projectsectionview
+
+**Type:** View Component
+
+**Definition:**
+Manages project selection interface, showing current project or prompting user to select one.
+
+**Usage:**
+Allows users to choose and change the active project for analysis.

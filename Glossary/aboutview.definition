@@ -1,0 +1,9 @@
+# aboutview
+
+**Type:** View Component
+
+**Definition:**
+Application information panel showing version, description, repository link, and license.
+
+**Usage:**
+Displays application metadata and attribution information.

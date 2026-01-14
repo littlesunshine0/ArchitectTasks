@@ -1,0 +1,9 @@
+# settingsview
+
+**Type:** View Component
+
+**Definition:**
+Tabbed settings interface organizing general, analysis, policy, and about configuration panels.
+
+**Usage:**
+Central configuration hub for application preferences and policies.

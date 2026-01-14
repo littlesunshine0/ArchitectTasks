@@ -1,0 +1,9 @@
+# statussectionview
+
+**Type:** View Component
+
+**Definition:**
+Controls analysis execution and displays policy selection with run statistics including findings, tasks, and success counts.
+
+**Usage:**
+Primary interaction point for triggering analysis and viewing results summary.

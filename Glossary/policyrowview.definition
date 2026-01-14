@@ -1,0 +1,9 @@
+# policyrowview
+
+**Type:** View Component
+
+**Definition:**
+Individual policy item displaying name, description, and export action.
+
+**Usage:**
+Represents a single approval policy with export capability.

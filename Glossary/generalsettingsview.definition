@@ -1,0 +1,9 @@
+# generalsettingsview
+
+**Type:** View Component
+
+**Definition:**
+Configuration panel for auto-analyze behavior, notifications, and default policy selection.
+
+**Usage:**
+Basic application behavior settings accessible via settings tab.

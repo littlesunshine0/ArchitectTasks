@@ -1,0 +1,9 @@
+# headerview
+
+**Type:** View Component
+
+**Definition:**
+Displays application branding, status icon, and current state text at the top of the menu bar interface.
+
+**Usage:**
+Visual indicator of application health and activity status.

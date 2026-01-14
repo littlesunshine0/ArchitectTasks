@@ -1,0 +1,9 @@
+# policysettingsview
+
+**Type:** View Component
+
+**Definition:**
+Manages built-in and custom approval policy configuration with export functionality.
+
+**Usage:**
+Policy selection and customization interface for task approval rules.

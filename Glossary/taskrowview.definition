@@ -1,0 +1,9 @@
+# taskrowview
+
+**Type:** View Component
+
+**Definition:**
+Individual task item showing title, category badge, confidence percentage, and approve/reject actions.
+
+**Usage:**
+Represents a single pending task with inline action buttons for user decision.
