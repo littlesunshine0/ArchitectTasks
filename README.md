@@ -5,14 +5,15 @@ Task-driven code intelligence for Swift projects.
 ## Quick Start
 
 ```bash
-make setup
+make build-installers
 ```
 
-This launches a guided setup wizard that will:
-1. ✨ Welcome you to ArchitectTasks
-2. 🔐 Request necessary permissions
-3. 🔨 Build and install the Xcode extension
-4. ⚙️ Open System Settings for final activation
+Or open `Package.swift` in Xcode and build. This will automatically create:
+- 📱 **ArchitectTasks Setup.app** - Guided installation wizard
+- 🌸 **Spring Clean.app** - System storage cleaner
+- 💿 **ArchitectTasks-Installer.dmg** - Complete installer package
+
+Double-click the DMG and run the setup app to install.
 
 ## Storage Optimization
 

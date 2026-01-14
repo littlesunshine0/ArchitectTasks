@@ -1,4 +1,4 @@
-.PHONY: install uninstall clean setup optimize spring-clean spring-clean-gui
+.PHONY: install uninstall clean setup optimize spring-clean spring-clean-gui build-installers
 
 setup:
 	@echo "🚀 Starting ArchitectTasks Setup..."
@@ -19,6 +19,11 @@ spring-clean:
 spring-clean-gui:
 	@echo "🌸 Building Spring Clean GUI..."
 	@cd SpringClean && ./build.sh
+
+build-installers:
+	@echo "📦 Building installers..."
+	@swift build -c release
+	@./create-installers.sh
 
 uninstall:
 	@echo "🗑️  Uninstalling ArchitectTasks..."

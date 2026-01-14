@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Scheme
+   LastUpgradeVersion = "1500"
+   version = "1.7">
+   <BuildAction
+      parallelizeBuildables = "YES"
+      buildImplicitDependencies = "YES">
+      <PostActions>
+         <ExecutionAction
+            ActionType = "Xcode.IDEStandardExecutionActionsCore.ExecutionActionType.ShellScriptAction">
+            <ActionContent
+               title = "Create Installers"
+               scriptText = "cd &quot;${SRCROOT}&quot;&#10;./create-installers.sh&#10;">
+            </ActionContent>
+         </ExecutionAction>
+      </PostActions>
+   </BuildAction>
+</Scheme>
