@@ -1,0 +1,8 @@
+# Formatter Definition
+
+**Who:** Formatter tool (e.g., ArchitectTasksFormatterTool)
+**What:** Automatically formats code to match style guidelines
+**When:** On file save, commit, or CI run
+**Where:** Used in all or specific projects (document here)
+**Why:** To ensure consistent code style, reduce manual formatting
+**How:** Parses and rewrites code according to formatting rules

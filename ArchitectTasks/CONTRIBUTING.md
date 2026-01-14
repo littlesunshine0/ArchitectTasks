@@ -108,6 +108,87 @@ struct MyTransform: DeterministicTransform {
 4. **Policy-driven approval** - declarative, not procedural
 5. **Persistence for auditability** - every run is recorded
 
+## Unified Architecture
+
+The system now uses a unified definition-driven architecture with three integrated layers:
+
+### 1. Type System
+- **UnifiedType**: Single enum for all definitions (tool, agent, rule, policy, workflow, etc.)
+- **TypeCategory**: Groups types by execution model (executable, constraint, process, etc.)
+- **UnifiedDefinition**: Base protocol for all definitions
+
+### 2. Integration Layer  
+- **IntegrationManager**: Central bridge between systems
+- **UnifiedRegistry**: Consolidated registry for all definitions and verb projects
+- **VerbCLI**: Command-line interface for executing verb projects
+
+### 3. Execution Flow
+```
+verb.namespace → IntegrationManager → AgentTask → TaskRunner
+```
+
+See `UNIFIED_ARCHITECTURE.md` for complete integration details.
+
+## Agent Naming Convention
+
+Agents follow a hierarchical naming structure based on four semantic layers:
+
+```
+<Domain>[<SubDomain>][<Area>][<SubArea>]<Role>
+```
+
+Where:
+- **Domain**: Broad problem space (e.g., Security, Data, Network)
+- **SubDomain**: Narrower functional category (e.g., AccessControl, Quality)
+- **Area**: Type of problem (e.g., Escalation, Validation)
+- **SubArea**: Specific problem class (e.g., Privilege, Schema)
+- **Role**: Agent, Handler, Checker, Analyzer, Monitor, Reporter, Resolver
+
+### Usage Patterns
+
+**General-purpose agents** - Use the shortest meaningful form:
+```swift
+SecurityIncidentAgent
+DataSchemaAgent
+```
+
+**Specialized agents** - Add layers as needed:
+```swift
+SecurityAccessControlEscalationAgent
+QualityValidationAgent
+```
+
+**Highly specialized agents** - Add a role suffix:
+```swift
+AccessControlEscalationHandler
+QualityValidationChecker
+```
+
+**Cross-domain agents**:
+```swift
+SecurityNetworkTrafficAgent
+```
+
+**Versioned agents** (rare):
+```swift
+DataSchemaAgentV2
+```
+
+### Naming Rules
+
+1. Always use PascalCase
+2. Acronyms are fully capitalized (AIML, API)
+3. Avoid abbreviations unless standardized
+4. Intent and purpose (Detect, Prevent, etc.) are not in the name
+5. Use the shortest meaningful form
+6. Add layers only as needed for clarity
+
+### Governance
+
+- Maintain a controlled vocabulary for each layer (see `AGENT_TAXONOMY.md`)
+- Use the naming decision tree before creating new agents
+- Audit agent names regularly for consistency
+
 ## Questions?
 
 Open an issue for discussion before starting major work.

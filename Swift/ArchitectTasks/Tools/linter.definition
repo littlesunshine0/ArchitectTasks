@@ -1,0 +1,8 @@
+# Linter Definition
+
+**Who:** Linter tool (e.g., ArchitectTasksLinterTool)
+**What:** Enforces code style, detects code smells, ensures consistency
+**When:** On file save, commit, or CI run
+**Where:** Used in all or specific projects (document here)
+**Why:** To prevent bugs, improve readability, maintain standards, automate review
+**How:** Analyzes source code, flags violations, provides feedback

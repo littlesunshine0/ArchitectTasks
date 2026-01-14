@@ -1,0 +1,8 @@
+# Generator Definition
+
+**Who:** Generator tool (e.g., ArchitectTasksGeneratorTool)
+**What:** Generates code, files, or other artifacts
+**When:** On demand or as part of build process
+**Where:** Used in all or specific projects (document here)
+**Why:** To automate repetitive tasks, ensure consistency, speed up development
+**How:** Uses templates, rules, or logic to produce output

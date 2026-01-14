@@ -1,0 +1,8 @@
+# Analyzer Definition
+
+**Who:** Analyzer tool (e.g., ArchitectTasksAnalyzerTool)
+**What:** Performs static or dynamic analysis to find issues or gather metrics
+**When:** On demand, scheduled, or as part of CI
+**Where:** Used in all or specific projects (document here)
+**Why:** To identify bugs, performance issues, or code quality problems
+**How:** Examines code or runtime behavior, reports findings

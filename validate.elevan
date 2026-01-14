@@ -1,0 +1,44 @@
+{
+  "verb": "validate",
+  "namespace": "elevan",
+  "statement": "Comprehensive validation system for code quality, security, and compliance",
+  "explanation": "The validate.elevan project provides a unified validation framework that can check code against quality standards, security policies, and compliance requirements through configurable rules and automated workflows.",
+  "metadata": {
+    "version": "1.0.0",
+    "author": "Elevan Team",
+    "category": "Quality Assurance",
+    "tags": ["validation", "quality", "security", "compliance"]
+  },
+  "artifacts": [
+    {
+      "name": "validate.definition",
+      "type": "definition",
+      "path": "./validate.definition"
+    },
+    {
+      "name": "validate.tool",
+      "type": "tool", 
+      "path": "./validate.tool"
+    },
+    {
+      "name": "validate.agent",
+      "type": "agent",
+      "path": "./validate.agent"
+    },
+    {
+      "name": "validate.policy",
+      "type": "policy",
+      "path": "./validate.policy"
+    },
+    {
+      "name": "validate.workflow",
+      "type": "workflow",
+      "path": "./validate.workflow"
+    },
+    {
+      "name": "validate.sh",
+      "type": "script",
+      "path": "./validate.sh"
+    }
+  ]
+}
