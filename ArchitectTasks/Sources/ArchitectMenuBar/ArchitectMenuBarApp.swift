@@ -7,6 +7,8 @@ import ArchitectHost
 @main
 struct ArchitectMenuBarApp: App {
     @StateObject private var appState = AppState()
+    @NSApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
+    @AppStorage("hasCompletedWelcome") private var hasCompletedWelcome = false
     
     var body: some Scene {
         MenuBarExtra("Architect", systemImage: appState.statusIcon) {
@@ -19,6 +21,44 @@ struct ArchitectMenuBarApp: App {
             SettingsView()
                 .environmentObject(appState)
         }
+        
+        Window("Welcome", id: "welcome") {
+            WelcomeView(isPresented: $hasCompletedWelcome)
+        }
+        .windowResizability(.contentSize)
+        .defaultPosition(.center)
+    }
+}
+
+class AppDelegate: NSObject, NSApplicationDelegate {
+    func applicationDidFinishLaunching(_ notification: Notification) {
+        // Setup auto-launch on first run
+        AutoLaunchSetup.setup()
+        
+        // Show welcome window on first launch
+        if !UserDefaults.standard.bool(forKey: "hasCompletedWelcome") {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                if let window = NSApp.windows.first(where: { $0.identifier?.rawValue == "welcome" }) {
+                    window.makeKeyAndOrderFront(nil)
+                    NSApp.activate(ignoringOtherApps: true)
+                }
+            }
+        }
+        
+        NSWorkspace.shared.notificationCenter.addObserver(
+            self,
+            selector: #selector(xcodeDidLaunch),
+            name: NSWorkspace.didLaunchApplicationNotification,
+            object: nil
+        )
+    }
+    
+    @objc func xcodeDidLaunch(_ notification: Notification) {
+        guard let app = notification.userInfo?[NSWorkspace.applicationUserInfoKey] as? NSRunningApplication,
+              app.bundleIdentifier == "com.apple.dt.Xcode" else { return }
+        
+        // Xcode launched - menu bar is already visible
+        NSApp.activate(ignoringOtherApps: true)
     }
 }
 
@@ -62,6 +102,13 @@ final class AppState: ObservableObject {
     // MARK: - Actions
     
     func selectProject() {
+        // Auto-detect Xcode workspace first
+        if let xcodeProject = detectXcodeProject() {
+            selectedProject = xcodeProject
+            setupHost()
+            return
+        }
+        
         let panel = NSOpenPanel()
         panel.canChooseFiles = false
         panel.canChooseDirectories = true
@@ -72,6 +119,31 @@ final class AppState: ObservableObject {
             selectedProject = url
             setupHost()
         }
+    }
+    
+    private func detectXcodeProject() -> URL? {
+        let workspace = NSWorkspace.shared
+        guard let xcode = workspace.runningApplications.first(where: { $0.bundleIdentifier == "com.apple.dt.Xcode" }) else {
+            return nil
+        }
+        
+        // Get frontmost Xcode window's project path via AppleScript
+        let script = """
+        tell application "Xcode"
+            if (count of windows) > 0 then
+                set workspacePath to path of active workspace document
+                return POSIX path of workspacePath
+            end if
+        end tell
+        """
+        
+        var error: NSDictionary?
+        if let scriptObject = NSAppleScript(source: script),
+           let result = scriptObject.executeAndReturnError(&error).stringValue {
+            return URL(fileURLWithPath: result).deletingLastPathComponent()
+        }
+        
+        return nil
     }
     
     func analyze() async {

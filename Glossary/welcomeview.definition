@@ -1,0 +1,9 @@
+# welcomeview
+
+**Type:** View Component
+
+**Definition:**
+First-run onboarding interface with three-step walkthrough explaining auto-launch configuration, project detection, and policy selection.
+
+**Usage:**
+Displays once on initial app launch to guide users through setup and explain core features.

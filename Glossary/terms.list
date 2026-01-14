@@ -11,6 +11,8 @@ command
 action
 agent
 loop
+autolaunchsetup
+welcomeview
 menubarview
 headerview
 projectsectionview

@@ -1,0 +1,9 @@
+# autolaunchsetup
+
+**Type:** Utility Component
+
+**Definition:**
+Automated setup utility that creates Launch Agent plist in ~/Library/LaunchAgents/ and provides fallback to System Settings Login Items with guided instructions.
+
+**Usage:**
+Runs on first launch to configure automatic startup when user logs in, ensuring menu bar appears before Xcode opens.
