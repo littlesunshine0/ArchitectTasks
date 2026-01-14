@@ -1,0 +1,9 @@
+# xcodecommandprovider
+
+**Type:** Extension Component
+
+**Definition:**
+Command handler implementing XCSourceEditorCommand protocol, processing analyzeFile, fixAll, and showPanel actions within Xcode editor context.
+
+**Usage:**
+Routes Xcode menu selections to appropriate analysis and transformation operations on active source buffer.

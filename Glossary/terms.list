@@ -13,6 +13,8 @@ agent
 loop
 autolaunchsetup
 welcomeview
+xcodeextension
+xcodecommandprovider
 menubarview
 headerview
 projectsectionview

@@ -1,0 +1,9 @@
+# xcodeextension
+
+**Type:** Extension Component
+
+**Definition:**
+Xcode Source Editor Extension that integrates ArchitectTasks directly into Xcode's Editor menu, providing native IDE integration without separate menu bar app.
+
+**Usage:**
+Enables users to analyze files, apply fixes, and manage tasks directly from Xcode's interface via Editor menu commands.
